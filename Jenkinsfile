@@ -1,7 +1,12 @@
 #!groovy
 
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'node:8-alpine'
+      args '-p 3000:3000'
+    }
+  }
   stages {
     stage('unit test') {
       steps {
