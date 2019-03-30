@@ -1,12 +1,8 @@
 #!groovy
 
 pipeline {
+  agent any
   stages {
-    stage('scm') {
-      steps {
-        scm
-      }
-    }
     stage('unit test') {
       steps {
         sh 'yarn run test'
