@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('unit test') {
       steps {
-        sh 'yarn run test'
+        sh 'npm run test'
       }
     }
     stage('code analyze') {
