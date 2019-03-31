@@ -22,10 +22,10 @@ pipeline {
       steps {
         sh '''
           sonar-scanner ¥
-            -Dsonar.projectKey=test ¥
+            -Dsonar.projectKey=react-sample ¥
             -Dsonar.sources=. ¥
             -Dsonar.host.url=http://localhost:9000 ¥
-            -Dsonar.login=82d92f75025604ba66852e21e8315ffe2a3fef2a ¥
+            -Dsonar.login=e91837c6d03aef639f02c2dae11ebd3282541ff6 ¥
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
         '''
       }
