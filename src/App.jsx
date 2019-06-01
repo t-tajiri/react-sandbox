@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route } from "react-router-dom";
-import Header from './Header';
-import Cat from './Cat';
+import React from 'react'
+import { Route } from 'react-router-dom'
+import Header from './Header'
+import Cat from './Cat'
 
 const App = () => (
   <div>
