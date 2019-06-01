@@ -1,13 +1,13 @@
 import React from 'react';
+import { Route } from "react-router-dom";
 import Header from './Header';
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import Cat from './Cat.jsx';
+import Cat from './Cat';
 
 const App = () => (
-  <Router>
-    <Header text="Hello World!"/>
-    <Route path="/cat" component={Cat} />
-  </Router>
+  <div>
+    <Header />
+    <Route path="/cat" component={ Cat } />
+  </div>
 );
 
 export default App;

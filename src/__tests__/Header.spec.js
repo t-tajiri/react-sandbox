@@ -15,9 +15,4 @@ describe('Header.js', () => {
   it('render without crashing', () => {
     expect(wrapper.exists()).toBe(true)
   })
-
-  it('set text in header', () => {
-    wrapper.setProps({ text: 'this text proped by test'})
-    expect(wrapper.find('#header-text').text()).toBe('this text proped by test')
-  })
 })
