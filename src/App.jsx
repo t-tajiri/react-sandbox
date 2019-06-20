@@ -1,12 +1,12 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import Header from './Header'
-import Cat from './Cat'
+import Todo from './Todo'
 
 const App = () => (
   <div>
     <Header />
-    <Route path="/cat" component={ Cat } />
+    <Route path="/todo" component={ Todo } />
   </div>
 );
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
-const cat = () => {
+const todo = () => {
   return <p>cat</p>
 }
 
-export default cat
+export default todo
