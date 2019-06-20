@@ -1,7 +1,7 @@
 import React from 'react'
 
 const todo = () => {
-  return <p>cat</p>
+  return <p>TODO</p>
 }
 
 export default todo
