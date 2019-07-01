@@ -1,24 +1,31 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Todo from './Todo.jsx'
+import { toggleTodo } from '../actions'
+import { useDispatch, useSelector } from 'react-redux'
+import { VisibilityFilter } from '../actions'
 
-const TodoList = ({ todos, toggleTodo }) => {
-  return (
-    <ul>
-      { todos.map(todo => { return (<Todo key={ todo.id } { ...todo } onClick={ () => toggleTodo(todo.id) } />) }) }
-    </ul>
-  )
+const getVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case VisibilityFilter.SHOW_ALL:
+      return todos
+    case VisibilityFilter.SHOW_COMPLETED:
+      return todos.filter(t => t.completed)
+    case VisibilityFilter.SHOW_ACTIVE:
+      return todos.filter(t => !t.completed)
+    default:
+      throw new Error('Unknown filter' + filter)
+  }
 }
 
-TodoList.propTypes = {
-  todos: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      completed: PropTypes.bool.isRequired,
-      text: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
-  toggleTodo: PropTypes.func.isRequired
+const TodoList = () => {
+  const todos = useSelector(state => getVisibleTodos(state.todos, state.visibilityFilter))
+  const dispatch = useDispatch()
+
+  return (
+    <ul>
+      { todos.map(todo => { return (<Todo key={ todo.id } { ...todo } onClick={ () => dispatch(toggleTodo(todo.id)) } />) }) }
+    </ul>
+  )
 }
 
 export default TodoList
